@@ -176,6 +176,7 @@ def empty_transactions(request):
 
 
 def all_transactions(request):
+    blockchain.sync_transactions()
     transactions = blockchain.transactions
     total_transactions = []
     if len(transactions) != 0:
@@ -191,7 +192,8 @@ def all_transactions(request):
                     {'status': 'completed', 'transaction': transaction, 'timestamp': block["timestamp"]})
 
     response = {
-        'number_of_transactions': len(blockchain.transactions),
+        'number_of_pending_transactions': len(blockchain.transactions),
+        'number_of_completed_transactions': len(total_transactions)-len(blockchain.transactions),
         'total_transactions': total_transactions,
     }
     return JsonResponse(response)
