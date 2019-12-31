@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Blockchainly
+{% endblock %}
+
+{% block content %}
+	<h1>Welcome to Blockchain based Unique Identification System</h1>
+	<h3>You can use following functionalities: </h3>
+	<ul>
+        <li><a href="{% url 'mine_block' %}">mine_block</a></li>
+		<li><a href="{% url 'get_chain' %}">get_chain</a></li>
+		<li><a href="{% url 'is_valid' %}">is_valid</a></li>
+        <li><a href="{% url 'all_transactions' %}">all_transactions</a></li>
+        <br>
+        <li>
+            <form method="post" action="{% url 'add_employment_transaction' %}">
+                {% csrf_token %}
+                <label for="employee_name">Employee Name</label>
+                <input id="employee_name" type="text" name="employee_name" required>
+                <br>
+                <label>Employee UID</label>
+                <input type="text" name="employee_uid" required>
+                <br>
+                <label>Employer Name</label>
+                <input type="text" name="employer_name" required>
+                <br>
+                <label>Employer UID</label>
+                <input type="text" name="employer_uid" required>
+                <br>
+                <label>Start Date</label>
+                <input type="date" name="start_date" required>
+                <br>
+                <label>End Date</label>
+                <input type="date" name="end_date" required>
+                <br>
+                <button type="submit">Add Employee Transaction</button>
+            </form>
+        </li>
+        <br>
+        <li>
+            <form method="post" action="{% url 'add_criminal_transaction' %}">
+                {% csrf_token %}
+                <label>Accused Name</label>
+                <input type="text" name="accused_name" required>
+                <br>
+                <label>Accused UID</label>
+                <input type="text" name="accused_uid" required>
+                <br>
+                <label>Offence Details</label>
+                <input type="text" name="offence_details" required>
+                <br>
+                <label>Police Station UID</label>
+                <input type="text" name="police_station_uid" required>
+                <br>
+                <label>Status</label>
+                <input type="text" name="status" required>
+                <br>
+                <label>IPC Rule</label>
+                <input type="text" name="ipc_rule" required>
+                <br>
+                <label>State Head</label>
+                <input type="text" name="state_head" required>
+                <br>
+                <button type="submit">Add Criminal Transaction</button>
+            </form>
+        </li>
+        <br>
+        <li>
+            <form method="post" action="{% url 'add_health_transaction' %}">
+                {% csrf_token %}
+                <label>Name</label>
+                <input type="text" name="name" required>
+                <br>
+                <label>UID</label>
+                <input type="text" name="uid" required>
+                <br>
+                <label>Fingerprint</label>
+                <input type="text" name="fingerprint" required>
+                <br>
+                <label>Retina Scan</label>
+                <input type="text" name="retina_scan" required>
+                <br>
+                <label>Vaccinations</label>
+                <input type="text" name="vaccinations" required>
+                <br>
+                <label>Medicines</label>
+                <input type="text" name="medicines" required>
+                <br>
+                <label>Major Accidents</label>
+                <input type="text" name="major_accidents" required>
+                <br>
+                <button type="submit">Add Health Transaction</button>
+            </form>
+        </li>
+        <br>
+		<li><a href="{% url 'connect_node' %}">connect_node</a></li>
+		<li><a href="{% url 'replace_chain' %}">replace_chain</a></li>
+		<li><a href="{% url 'get_transactions' %}">get_transactions</a></li>
+	</ul>
+{% endblock %}
