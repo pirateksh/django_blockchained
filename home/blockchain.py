@@ -4,7 +4,6 @@ import json
 import requests
 from urllib.parse import urlparse
 
-
 class Blockchain:
     
     def __init__(self):
