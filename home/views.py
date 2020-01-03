@@ -197,3 +197,17 @@ def all_transactions(request):
         'total_transactions': total_transactions,
     }
     return JsonResponse(response)
+
+
+def fetch_record(request, record_type, public_key):
+    # chain = blockchain.chain
+    # required_transaction = []
+    # for block in chain:
+    #     transactions = block['transactions']
+    #     if transactions:
+    #         for transaction in transactions:
+    #             record_type = transaction['recordType']
+    #             if str(record_type) == str(record_type):
+    #                 record_data = transaction['recordData']
+    #                 name =
+    return HttpResponse("fgg")
