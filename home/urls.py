@@ -18,4 +18,5 @@ urlpatterns = [
     path('empty_transactions/', views.empty_transactions,
          name='empty_transactions'),
     path('all_transaction/', views.all_transactions, name='all_transactions'),
+    path('fetch_record/<str:record_type>/<str:public_key>/', views.fetch_record, name='fetch_record'),
 ]
